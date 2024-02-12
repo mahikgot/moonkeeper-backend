@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Page</title>
+</head>
+<body>
+    <h2>Hello World Page</h2>
+    <p>Welcome to the Hello World page!</p>
+
+    <script>
+        // Function to check if the user is authenticated
+        function checkAuth() {
+            fetch('/checkAuth')
+                .then(response => {
+                    if (!response.ok) {
+                        window.location.replace('/login');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Call the checkAuth function on page load
+        checkAuth();
+    </script>
+</body>
+</html>
